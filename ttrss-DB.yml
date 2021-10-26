@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: tt-rss-db-deployment
+spec:
+  selector:
+    matchLabels:
+      app: tt-rss
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: tt-rss
+    spec:
+      containers:
+      - name: db
+        image: postgres:12-alpine
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 5432
+        env:
+          - name: POSTGRES_USER
+            value: postgres
+          - name: POSTGRES_PASSWORD
+            value: password
+          - name: POSTGRES_DB
+            value: postgres
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: pgsql-service
+  labels:
+    run: tt-rss
+spec:
+  ports:
+  - port: 5432
+    targetPort: 5432
+    protocol: TCP
+  selector:
+    app: tt-rss

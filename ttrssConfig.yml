@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: pgsql-config
+data:
+  db-url: pgsql-service
+  http-port: "80"
+  app-url: webapp-service

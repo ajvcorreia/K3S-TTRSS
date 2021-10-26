@@ -1,0 +1,53 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-deployment
+  labels:
+    app: nginx
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nginx
+  template:
+    metadata:
+      labels:
+        app: nginx
+    spec:
+      containers:
+      - name: nginx
+        image: ajvcorreia/ttrss-web_nginx
+        imagePullPolicy: Always
+        volumeMounts:
+          - name: nginx-vol
+            mountPath: /var/www/html
+        ports:
+        - containerPort: 9000
+        env:
+        - name: HTTP_PORT
+          valueFrom:
+            configMapKeyRef:
+              name: pgsql-config
+              key: http-port
+        - name: APP_URL
+          valueFrom:
+            configMapKeyRef:
+              name: pgsql-config
+              key: app-url
+      volumes:
+      - name: nginx-vol
+        emptyDir: {}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: web-nginx
+  labels:
+    run: nginx
+spec:
+  ports:
+  - port: 9000
+    targetPort: 9000
+    protocol: TCP
+  selector:
+    app: nginx

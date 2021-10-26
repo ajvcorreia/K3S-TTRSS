@@ -1,0 +1,43 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: webapp-deployment
+  labels:
+    app: webapp
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: webapp
+  template:
+    metadata:
+      labels:
+        app: webapp
+    spec:
+      containers:
+      - name: webapp
+        image: ajvcorreia/ttrss-app
+        ports:
+        - containerPort: 9000
+        env:
+        - name: TTRSS_DB_HOST
+          valueFrom:
+            configMapKeyRef:
+              name: pgsql-config
+              key: db-url
+        - name: TTRSS_DB_USER
+          value: postgres
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: webapp-service
+  labels:
+    run: webapp
+spec:
+  ports:
+  - port: 9000
+    targetPort: 9000
+    protocol: TCP
+  selector:
+    app: webapp
