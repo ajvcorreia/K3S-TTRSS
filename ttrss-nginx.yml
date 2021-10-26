@@ -22,7 +22,7 @@ spec:
           - name: nginx-vol
             mountPath: /var/www/html
         ports:
-        - containerPort: 9000
+        - containerPort: 80
         env:
         - name: HTTP_PORT
           valueFrom:
@@ -45,9 +45,12 @@ metadata:
   labels:
     run: nginx
 spec:
-  ports:
-  - port: 9000
-    targetPort: 9000
-    protocol: TCP
-  selector:
+  selector:    
     app: nginx
+  type: NodePort
+  ports:  
+  - name: http
+    port: 80
+    targetPort: 80
+    nodePort: 30036
+    protocol: TCP
