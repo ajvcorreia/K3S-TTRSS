@@ -27,6 +27,8 @@ spec:
               key: db-url
         - name: TTRSS_DB_USER
           value: postgres
+        - name: POSTGRES_PASSWORD
+          value: password
 ---
 apiVersion: v1
 kind: Service
