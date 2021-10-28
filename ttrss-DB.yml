@@ -39,3 +39,15 @@ spec:
     protocol: TCP
   selector:
     app: tt-rss
+# ---
+# apiVersion: v1
+# kind: Service
+# metadata:
+#   name: pgsql-service
+# spec:
+#   selector:
+#     app: tt-rss
+#   ports:
+#     - protocol: TCP
+#       port: 5432
+#       targetPort: 5432

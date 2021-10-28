@@ -1,3 +1,4 @@
+---      
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -36,21 +37,34 @@ spec:
               key: app-url
       volumes:
       - name: nginx-vol
-        emptyDir: {}
+        persistentVolumeClaim:
+          claimName: pvc-name
+# ---
+# apiVersion: v1
+# kind: Service
+# metadata:
+#   name: web-nginx
+#   labels:
+#     run: nginx
+# spec:
+#   selector:    
+#     app: nginx
+#   ports:  
+#   - name: http
+#     port: 80
+#     targetPort: 80
+#     protocol: TCP
+#   type: LoadBalancer
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: web-nginx
-  labels:
-    run: nginx
+  name: web-nginx-service
 spec:
-  selector:    
+  selector:
     app: nginx
-  type: NodePort
-  ports:  
-  - name: http
-    port: 80
-    targetPort: 80
-    nodePort: 30036
-    protocol: TCP
+  ports:
+    - protocol: TCP
+      port: 8080
+      targetPort: 80
+  type: LoadBalancer
