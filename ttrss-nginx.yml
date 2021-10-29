@@ -20,11 +20,13 @@ spec:
         image: ajvcorreia/ttrss-web_nginx
         imagePullPolicy: Always
         volumeMounts:
-          - name: nginx-vol
+          - name: nginx-vol2
             mountPath: /var/www/html
         ports:
         - containerPort: 80
         env:
+        - name: SELF_URL_PATH
+          value: "http://192.168.0.89:8080/tt-rss"
         - name: HTTP_PORT
           valueFrom:
             configMapKeyRef:
@@ -36,9 +38,9 @@ spec:
               name: pgsql-config
               key: app-url
       volumes:
-      - name: nginx-vol
+      - name: nginx-vol2
         persistentVolumeClaim:
-          claimName: pvc-name
+          claimName: local-path-pvc
 # ---
 # apiVersion: v1
 # kind: Service
