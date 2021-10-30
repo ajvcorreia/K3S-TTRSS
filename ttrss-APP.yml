@@ -24,15 +24,7 @@ spec:
         ports:
         - containerPort: 9000
         env:
-        - name: SELF_URL_PATH
-          value: http://192.168.0.89/tt-rss
-        - name: TTRSS_SELF_URL
-          value: http://192.168.0.89/tt-rss
-        - name: TTRSS_PROTO
-          value: http
-        - name: TTRSS_URL
-          value: 192.168.0.89
-        - name: SELF_URL_PATH
+        - name: TTRSS_SELF_URL_PATH
           value: http://192.168.0.89:8080/tt-rss
         - name: TTRSS_DB_HOST
           valueFrom:
