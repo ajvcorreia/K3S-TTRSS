@@ -1,0 +1,40 @@
+---      
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: updater-deployment
+  labels:
+    app: updater
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: updater
+  template:
+    metadata:
+      labels:
+        app: updater
+    spec:
+      containers:
+      - name: updater
+        image: ajvcorreia/ttrss-updater
+        volumeMounts:
+          - name: nginx-vol
+            mountPath: /var/www/html
+        env:
+        - name: TTRSS_DB_HOST
+          valueFrom:
+            configMapKeyRef:
+              name: pgsql-config
+              key: db-url
+              readonly:
+        - name: TTRSS_DB_USER
+          value: postgres
+        - name: TTRSS_DB_PASS
+          value: password
+        - name: TTRSS_DB_NAME
+          value: postgres
+      volumes:
+      - name: nginx-vol
+        persistentVolumeClaim:
+          claimName: local-path-pvc
