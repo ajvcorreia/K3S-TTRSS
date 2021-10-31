@@ -18,6 +18,7 @@ spec:
       containers:
       - name: updater
         image: ajvcorreia/ttrss-updater
+        imagePullPolicy: Always
         volumeMounts:
           - name: nginx-vol
             mountPath: /var/www/html

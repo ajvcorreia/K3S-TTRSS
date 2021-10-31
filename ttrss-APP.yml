@@ -18,6 +18,7 @@ spec:
       containers:
       - name: webapp
         image: ajvcorreia/ttrss-app
+        imagePullPolicy: Always
         volumeMounts:
           - name: nginx-vol
             mountPath: /var/www/html
@@ -25,7 +26,11 @@ spec:
         - containerPort: 9000
         env:
         - name: TTRSS_SELF_URL_PATH
-          value: http://192.168.0.89:8080/tt-rss
+          valueFrom:
+            configMapKeyRef:
+              name: pgsql-config
+              key: db-url
+              readonly:
         - name: TTRSS_DB_HOST
           valueFrom:
             configMapKeyRef:

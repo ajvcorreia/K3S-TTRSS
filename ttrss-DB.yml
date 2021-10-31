@@ -15,6 +15,7 @@ spec:
       containers:
       - name: db
         image: postgres:12-alpine
+        imagePullPolicy: Always
         volumeMounts:
           - name: db-vol
             mountPath: /var/lib/postgresql/data
