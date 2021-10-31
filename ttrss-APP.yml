@@ -28,13 +28,13 @@ spec:
         - name: TTRSS_SELF_URL_PATH
           valueFrom:
             configMapKeyRef:
-              name: pgsql-config
-              key: db-url
+              name: ttrss-config
+              key: self-url
               readonly:
         - name: TTRSS_DB_HOST
           valueFrom:
             configMapKeyRef:
-              name: pgsql-config
+              name: ttrss-config
               key: db-url
               readonly:
         - name: TTRSS_DB_USER

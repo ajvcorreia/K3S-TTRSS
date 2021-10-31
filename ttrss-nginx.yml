@@ -28,12 +28,12 @@ spec:
         - name: HTTP_PORT
           valueFrom:
             configMapKeyRef:
-              name: pgsql-config
+              name: ttrss-config
               key: http-port
         - name: APP_URL
           valueFrom:
             configMapKeyRef:
-              name: pgsql-config
+              name: ttrss-config
               key: app-url
       volumes:
       - name: nginx-vol2
