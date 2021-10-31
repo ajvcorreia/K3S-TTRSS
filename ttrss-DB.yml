@@ -32,7 +32,7 @@ spec:
       volumes:
       - name: db-vol
         persistentVolumeClaim:
-          claimName: local-path-pvc
+          claimName: ttrss-db
 ---
 apiVersion: v1
 kind: Service

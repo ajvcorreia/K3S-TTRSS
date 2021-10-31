@@ -7,3 +7,4 @@ data:
   http-port: "80"
   app-url: webapp-service
   self-url: http://192.168.0.89:8080/tt-rss
+  LB-IP: "192.168.0.89"
