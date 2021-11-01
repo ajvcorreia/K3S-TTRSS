@@ -4,6 +4,7 @@ Trying to setup TTRSS on a K3S Kubernetes Raspberry Pi 4 cluster.
 
 K3S Storage
 https://github.com/rancher/local-path-provisioner/blob/master/README.md#usage
+https://dev.to/bbende/k3s-on-raspberry-pi-volumes-and-storage-1om5
 
 Since kubernetes cannot build the containers to run in the pods, I had to build them manually from the official docker-compose repository.
 
