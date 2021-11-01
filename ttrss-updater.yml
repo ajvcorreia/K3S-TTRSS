@@ -38,4 +38,4 @@ spec:
       volumes:
       - name: nginx-vol
         persistentVolumeClaim:
-          claimName: local-path-pvc
+          claimName: ttrss-pvc-app

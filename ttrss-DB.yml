@@ -29,10 +29,12 @@ spec:
             value: password
           - name: POSTGRES_DB
             value: postgres
+          - name: PGDATA
+            value: /var/lib/postgresql/data/db-files/
       volumes:
       - name: db-vol
         persistentVolumeClaim:
-          claimName: ttrss-db
+          claimName: ttrss-pvc-db
 ---
 apiVersion: v1
 kind: Service

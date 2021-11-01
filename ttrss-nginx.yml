@@ -6,7 +6,7 @@ metadata:
   labels:
     app: nginx
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       app: nginx
@@ -38,7 +38,7 @@ spec:
       volumes:
       - name: nginx-vol2
         persistentVolumeClaim:
-          claimName: local-path-pvc
+          claimName: ttrss-pvc-app
 # ---
 # apiVersion: v1
 # kind: Service
