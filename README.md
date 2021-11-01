@@ -6,8 +6,10 @@ K3S cluster build instructions:
 https://dev.to/nullxx/raspberry-pi-4b-kubernetes-cluster-3l9a
 
 K3S Storage
-https://github.com/rancher/local-path-provisioner/blob/master/README.md#usage
-https://dev.to/bbende/k3s-on-raspberry-pi-volumes-and-storage-1om5
+
+Local Path: https://github.com/rancher/local-path-provisioner/blob/master/README.md#usage
+Longhorn: https://dev.to/bbende/k3s-on-raspberry-pi-volumes-and-storage-1om5
+NFS: https://www.phillipsj.net/posts/k3s-enable-nfs-storage/
 
 Since kubernetes cannot build the containers to run in the pods, I had to build them manually from the official docker-compose repository.
 
