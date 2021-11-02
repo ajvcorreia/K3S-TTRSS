@@ -9,7 +9,8 @@ K3S Storage
 
 Local Path: https://github.com/rancher/local-path-provisioner/blob/master/README.md#usage<br>
 Longhorn: https://dev.to/bbende/k3s-on-raspberry-pi-volumes-and-storage-1om5<br>
-NFS: https://www.phillipsj.net/posts/k3s-enable-nfs-storage/
+NFS: https://www.phillipsj.net/posts/k3s-enable-nfs-storage/<br>
+NFS2: https://opensource.com/article/20/6/kubernetes-nfs-client-provisioning
 
 Since kubernetes cannot build the containers to run in the pods, I had to build them manually from the official docker-compose repository.
 
