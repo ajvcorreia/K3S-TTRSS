@@ -8,6 +8,8 @@ spec:
   repo: https://kubernetes-sigs.github.io/nfs-subdir-external-provisioner
   targetNamespace: default
   set:
-    nfs.server: 192.168.0.21
-    nfs.path: /NFS
+    nfs.server: 192.168.0.184
+    nfs.path: /mnt/k3s
     storageClass.name: nfs
+  mountOptions:
+    - nfsvers=3
