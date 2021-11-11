@@ -6,7 +6,8 @@ K3S cluster build instructions:
 https://dev.to/nullxx/raspberry-pi-4b-kubernetes-cluster-3l9a
 
 Kubernetes dashboard
-https://github.com/kubernetes/dashboard/blob/master/docs/user/access-control/creating-sample-user.md
+https://github.com/kubernetes/dashboard/blob/master/docs/user/access-control/creating-sample-user.md<br>
+https://www.nocture.dk/2020/07/02/running-a-kubernetes-cluster-with-dashboard-on-raspberry-pi-4/
 
 K3S Storage
 
