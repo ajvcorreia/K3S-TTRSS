@@ -1,4 +1,4 @@
-TTRSS on K3S Kubernetes Raspberry Pi 4 cluster.
+<h1>TTRSS on K3S Kubernetes Raspberry Pi 4 cluster</h1>
 
 This command should install TTRSS successfully on a kubernetes cluster
 ```
