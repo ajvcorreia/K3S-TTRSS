@@ -4,6 +4,7 @@ Trying to setup TTRSS on a K3S Kubernetes Raspberry Pi 4 cluster.
 
 K3S cluster build instructions:
 https://dev.to/nullxx/raspberry-pi-4b-kubernetes-cluster-3l9a
+https://itnext.io/the-ultimate-guide-to-building-your-personal-k3s-cluster-bf2643f31dd3
 
 Kubernetes dashboard
 https://github.com/kubernetes/dashboard/blob/master/docs/user/access-control/creating-sample-user.md<br>
